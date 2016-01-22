@@ -3,24 +3,36 @@ $:.unshift File.dirname($0)
 
 require "Qt4"
 
+require "buttons"
+
 class MainWindow < Qt::Widget
+  slots 'on_changed(QString)'
+
   def initialize(parent = nil)
     super
     setFixedSize(640, 480)
 
-    ok = Qt::PushButton.new(tr("&Ok"), self)
-    ok.setFont(Qt::Font.new("Times", 12))
-    ok.setGeometry(500,420,40,40)
-    connect(ok, SIGNAL("clicked()"), $qApp, SLOT("quit()"))
+    set_window_title "ElectroCode "
+    init_ui
 
-    cancel = Qt::PushButton.new(tr("&Cancel"), self)
-    cancel.setFont(Qt::Font.new("Times", 12))
-    cancel.setGeometry(545,420,60,40)
-    connect(cancel, SIGNAL("clicked()"), $qApp, SLOT("quit()"))
+    show
   end
+  def init_ui
+    @label = Qt::Label.new self
+    ok()
+    cancel()
+
+  end
+
+  def on_changed text
+    @label.setText text
+    @label.adjustSize
+  end
+
 end
+
+
 ## EXEC
 app = Qt::Application.new(ARGV)
-window = MainWindow.new()
-window.show()
+MainWindow.new()
 app.exec()
