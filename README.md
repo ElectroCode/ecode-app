@@ -1,1 +1,2 @@
-# ecode-app
+# ElectroCode App
+
