@@ -22,6 +22,11 @@ class MainWindow < Qt::Widget
     ok()
     cancel()
 
+    layout = Qt::VBoxLayout.new()
+    layout.addWidget(ok)
+    layout.addWidget(cancel)
+    #layout.addWidget()
+    setLayout(layout)
   end
 
   def on_changed text
