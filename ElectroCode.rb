@@ -3,35 +3,31 @@ $:.unshift File.dirname($0)
 
 require "Qt4"
 
+require "about"
 require "buttons"
+require "menubar"
+require "text"
 
-class MainWindow < Qt::Widget
-  slots 'on_changed(QString)'
 
-  def initialize(parent = nil)
+
+class MainWindow < Qt::MainWindow
+  slots "about_message()"
+  def initialize
     super
-    setFixedSize(640, 480)
-
-    set_window_title "ElectroCode "
+    setWindowTitle "ElectroCode App "
     init_ui
 
+    resize 330, 170
+    move 300, 300
     show
   end
+
   def init_ui
-    @label = Qt::Label.new self
-    ok()
-    cancel()
+    vbox = Qt::VBoxLayout.new
+    hbox = Qt::HBoxLayout.new
 
-    layout = Qt::VBoxLayout.new()
-    layout.addWidget(ok)
-    layout.addWidget(cancel)
-    #layout.addWidget()
-    setLayout(layout)
-  end
+    menubar
 
-  def on_changed text
-    @label.setText text
-    @label.adjustSize
   end
 
 end
