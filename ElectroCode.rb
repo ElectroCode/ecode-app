@@ -4,9 +4,7 @@ $:.unshift File.dirname($0)
 require "Qt4"
 
 require "about"
-require "buttons"
 require "menubar"
-require "text"
 
 
 
