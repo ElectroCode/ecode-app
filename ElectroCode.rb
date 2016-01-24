@@ -9,7 +9,6 @@ require "menubar"
 
 
 class MainWindow < Qt::MainWindow
-  slots "about_message()"
   def initialize
     super
     setWindowTitle "ElectroCode App "
