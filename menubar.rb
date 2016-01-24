@@ -22,5 +22,5 @@ def menubar
 
   connect quit, SIGNAL("triggered()"), Qt::Application.instance, SLOT("quit()")
 
-  connect about, SIGNAL("triggered()"), SLOT("about_message()")
+  connect about, SIGNAL("triggered()"), &method(:about_message)
 end
