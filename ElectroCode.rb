@@ -8,7 +8,7 @@ require "menubar"
 
 
 
-class MainWindow < Qt::MainWindow
+class App < Qt::MainWindow
   def initialize
     super
     setWindowTitle "ElectroCode App "
@@ -32,5 +32,5 @@ end
 
 ## EXEC
 app = Qt::Application.new(ARGV)
-MainWindow.new()
+App.new()
 app.exec()
