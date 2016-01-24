@@ -1,8 +1,7 @@
 def menubar
   file = menuBar().addMenu "&File"
 
-  quit = Qt::Action.new "&Quit", self
-  file.addAction quit
+  quit = Qt::Action.new "&Quit", self;file.addAction quit
 
 
 
@@ -15,8 +14,7 @@ def menubar
 
   help = menuBar().addMenu "&Help"
 
-  about = Qt::Action.new "&About", self
-  help.addAction about
+  about = Qt::Action.new "&About", self;help.addAction about
 
 
 
